@@ -161,7 +161,7 @@ def run_prediction_multiclass(model, smi, calculate_ad=True, ad_tup=None, thresh
     if mol is None:
         raise ValueError(f"Invalid SMILES string: {smi}")
     
-    _fp = calc.pandas([mol])  # Pass the mol as a list
+    _fp = calc.pandas([mol], nproc=1)  # Pass the mol as a list
 
     # Min-Max scaling
     scaler = MinMaxScaler()
